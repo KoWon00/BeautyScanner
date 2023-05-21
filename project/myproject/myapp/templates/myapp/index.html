@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cosmetic Shop</title>
+    <link href="{% static 'style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header>
+        <h1>Beauty Scanner</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a id="link-contact" href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <h2>Welcome to Beauty Scanner </h2>
+        <p>We recommend cosmetic ingredients, allergy ingredients, harmful ingredients, and similar products you want.</p>
+    </main>
+
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-header">
+            <h4>Chatbot</h4>
+        </div>
+        <div class="chatbot-body">
+            <div class="chatbot-message chatbot-message-bot">
+                <p>무엇을 도와드릴까요?</p>
+            </div>
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" id="chatbot-input" placeholder="메시지를 입력하세요..." />
+            <button id="send-button">전송</button>
+            <form id="image-upload-form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input id="image-input" type="file" name="image" accept="image/*">
+                <input type="submit" value="Upload">
+            </form>   
+        </div>
+        <div><button id="close-button">나가기</button></div>
+    </div> 
+
+    <script src="{% static 'script.js' %}" type="text/javascript"></script>
+</body>
+</html>
